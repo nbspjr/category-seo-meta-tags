@@ -6,7 +6,7 @@
  */
 /*
 Plugin Name: Category SEO Meta Tags
-Plugin URI: http://www.bala-krishna.com
+Plugin URI: http://wordpress.org/extend/plugins/category-seo-meta-tags/
 Description: Add ability to add meta tags for category pages. This plugin specially designed to work with All In One SEO plugin.
 Author: Bala Krishna
 Version: 1.0
