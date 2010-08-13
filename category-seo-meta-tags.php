@@ -2,30 +2,24 @@
 /**
  * @package Category SEO Meta Tags
  * @author Bala Krishna
- * @version 1.0
+ * @version 1.1
  */
+
 /*
+
 Plugin Name: Category SEO Meta Tags
 Plugin URI: http://www.bala-krishna.com/wordpress-plugins/category-seo-meta-tags/
 Description: Add ability to add meta tags for category pages. This plugin specially designed to work with All In One SEO plugin.
 Author: Bala Krishna
-Version: 1.0
+Version: 1.1
 Author URI: http://www.bala-krishna.com
 */
+
 /*
 Copyright (C) 2009-2010 Balkrishna Verma, bala-krishna.com (krishna711@gmail.com)
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 3 of the License, or
-(at your option) any later version.
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 
@@ -34,12 +28,14 @@ function cat_seo_title_tag()
 	show_category_meta_title();
 }
 
-if(isset($_POST['action']) && $_POST['action']=="editedcat") {
+
+if(isset($_POST['action']) && $_POST['action']=="editedtag") {
     $cat_meta_setting['page_title']=$_POST['cat_title'];
     $cat_meta_setting['description']=$_POST['cat_desc'];
     $cat_meta_setting['metakey']=$_POST['cat_keywords'];
 	if(!empty($cat_meta_setting['page_title']) && !empty($cat_meta_setting['description']) && !empty($cat_meta_setting['metakey'])) {
-		 update_option('cat_meta_key_'.$_POST['cat_ID'],$cat_meta_setting);
+		 update_option('cat_meta_key_'.$_POST['tag_ID'],$cat_meta_setting);
+		 
 	}	 
 }
 
@@ -80,12 +76,11 @@ function get_current_cat_meta($cur_cat_id) {
 	}
 }
 
-
 function category_meta_form() {
 if(isset($_GET['action']) && $_GET['action']=="edit") {
 ?>
 <h2>Category Meta Setting</h2>
-<?php $cat_meta = get_option('cat_meta_key_'.$_GET['cat_ID']); //print_r( $cat_meta); ?>
+<?php $cat_meta = get_option('cat_meta_key_'.$_GET['tag_ID']); //print_r( $cat_meta); ?>
 <table width="100%" border="1" cellspacing="3" cellpadding="3">
   <tr>
     <td width="33%"><div align="right"><strong>Page Title:</strong></div></td>
@@ -103,8 +98,6 @@ if(isset($_GET['action']) && $_GET['action']=="edit") {
 <?php
 }
 }
-
 add_action ('edit_category_form', 'category_meta_form' );
 add_action ('wp_head','show_category_meta'); 
-
 ?>
