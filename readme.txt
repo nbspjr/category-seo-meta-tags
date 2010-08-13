@@ -13,7 +13,7 @@ Allow you to add custom meta tags for category pages. This plugin specially desi
 Optimized for Wordpress 3.0 and above. 
 
 == Upgrade Notice == 
-Optimized for Wordpress 3.0 and above.
+Version 1.1 optimized for wordpress 3.0 and above. Do not upgrade if you are using wordpress version earlier then 3.0. Peoples using wordpress lower then 3.0 should use 1.0 version. 
 
 == Follow Me ==
 Follow me on Twitter to keep up with the latest updates [Bala Krishna](http://twitter.com/balakrishna/)
