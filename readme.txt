@@ -10,6 +10,8 @@ Stable tag: 1.1
 == Description ==
 Allow you to add custom meta tags for category pages. This plugin specially designed to work with All In One SEO plugin. If you are using other seo plugin such as HeadSpace2 or SEO Title Tags plugin then this plugin is not for you because this plugin already supporting meta tags for category pages. 
 
+Optimized for Wordpress 3.0 and above. 
+
 == Upgrade Notice == 
 Optimized for Wordpress 3.0 and above.
 
