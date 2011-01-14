@@ -10,7 +10,7 @@ Stable tag: 2.0
 
 Added meta tags support for tag pages. 
 
-Allow you to add custom meta tags for category pages. This plugin specially designed to work with All In One SEO plugin. If you are using other seo plugin such as HeadSpace2 or SEO Title Tags plugin then this plugin is not for you because this plugin already supporting meta tags for category pages. 
+Allow you to add custom meta tags for category and tag pages. This plugin specially designed to work with All In One SEO plugin. If you are using other seo plugin such as HeadSpace2 or SEO Title Tags plugin then this plugin is not for you because this plugin already supporting meta tags for category pages. 
 
 Note before upgraded:
 Title tags implemented in a completely new way. If you are previous user and want to upgrade then you need to edit all-in-one-seo-pack again. Old editing will not work with this version. see installation tab for more details. 
@@ -84,6 +84,7 @@ Please read these **[FAQs](http://www.bala-krishna.com/wordpress-plugins/categor
 2.0 
 ---
 Added tag page meta support
+Fixed support for blank keyword and description. title must be entered.
 Filter implementaion for less editing of all in one seo pack 
 
 1.1 
@@ -99,8 +100,3 @@ Startup version
 == Screenshots ==
 
 Please read these **[Screenshots](http://www.bala-krishna.com/wordpress-plugins/category-seo-meta-tags/)** here.
-
-
-
-
-
