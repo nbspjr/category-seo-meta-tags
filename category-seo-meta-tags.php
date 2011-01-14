@@ -9,7 +9,7 @@
 
 Plugin Name: Category SEO Meta Tags
 Plugin URI: http://www.bala-krishna.com/wordpress-plugins/category-seo-meta-tags/
-Description: Add ability to add meta tags for category pages. This plugin specially designed to work with All In One SEO plugin.
+Description: Add ability to add meta tags for category and tag pages. This plugin specially designed to work with All In One SEO plugin.
 Author: Bala Krishna
 Version: 2.0
 Author URI: http://www.bala-krishna.com
@@ -33,7 +33,7 @@ if(isset($_POST['action']) && $_POST['action']=="editedtag" && $_POST['taxonomy'
     $cat_meta_setting['page_title']=$_POST['cat_title'];
     $cat_meta_setting['description']=$_POST['cat_desc'];
     $cat_meta_setting['metakey']=$_POST['cat_keywords'];
-	if(!empty($cat_meta_setting['page_title']) && !empty($cat_meta_setting['description']) && !empty($cat_meta_setting['metakey'])) {
+	if(!empty($cat_meta_setting['page_title'])) {
 		 update_option('cat_meta_key_'.$_POST['tag_ID'],$cat_meta_setting);
 	}	 
 }
@@ -42,7 +42,7 @@ if(isset($_POST['action']) && $_POST['action']=="editedtag" && $_POST['taxonomy'
     $tag_meta_setting['page_title']=$_POST['tag_title'];
     $tag_meta_setting['description']=$_POST['tag_desc'];
     $tag_meta_setting['metakey']=$_POST['tag_keywords'];
-	if(!empty($tag_meta_setting['page_title']) && !empty($tag_meta_setting['description']) && !empty($tag_meta_setting['metakey'])) {
+	if(!empty($tag_meta_setting['page_title'])) {
 		 update_option('tag_meta_key_'.$_POST['tag_ID'],$tag_meta_setting);
 	}	 
 }
