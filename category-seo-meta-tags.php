@@ -2,7 +2,7 @@
 /**
  * @package Category SEO Meta Tags
  * @author Bala Krishna
- * @version 1.1
+ * @version 2.0
  */
 
 /*
@@ -11,7 +11,7 @@ Plugin Name: Category SEO Meta Tags
 Plugin URI: http://www.bala-krishna.com/wordpress-plugins/category-seo-meta-tags/
 Description: Add ability to add meta tags for category pages. This plugin specially designed to work with All In One SEO plugin.
 Author: Bala Krishna
-Version: 1.1
+Version: 2.0
 Author URI: http://www.bala-krishna.com
 */
 
@@ -29,13 +29,21 @@ function cat_seo_title_tag()
 }
 
 
-if(isset($_POST['action']) && $_POST['action']=="editedtag") {
+if(isset($_POST['action']) && $_POST['action']=="editedtag" && $_POST['taxonomy']=="category") {
     $cat_meta_setting['page_title']=$_POST['cat_title'];
     $cat_meta_setting['description']=$_POST['cat_desc'];
     $cat_meta_setting['metakey']=$_POST['cat_keywords'];
 	if(!empty($cat_meta_setting['page_title']) && !empty($cat_meta_setting['description']) && !empty($cat_meta_setting['metakey'])) {
 		 update_option('cat_meta_key_'.$_POST['tag_ID'],$cat_meta_setting);
-		 
+	}	 
+}
+
+if(isset($_POST['action']) && $_POST['action']=="editedtag" && $_POST['taxonomy']=="post_tag") {
+    $tag_meta_setting['page_title']=$_POST['tag_title'];
+    $tag_meta_setting['description']=$_POST['tag_desc'];
+    $tag_meta_setting['metakey']=$_POST['tag_keywords'];
+	if(!empty($tag_meta_setting['page_title']) && !empty($tag_meta_setting['description']) && !empty($tag_meta_setting['metakey'])) {
+		 update_option('tag_meta_key_'.$_POST['tag_ID'],$tag_meta_setting);
 	}	 
 }
 
@@ -46,6 +54,12 @@ function show_category_meta() {
 	if(is_category($cur_cat_id)) {
 		get_current_cat_meta($cur_cat_id);
 	}
+
+	if(is_tag()) {
+		$cur_tag_id = get_query_var('tag_id');
+		get_current_tag_meta($cur_tag_id);
+	}
+
 }
 
 function show_category_meta_title() {
@@ -55,49 +69,108 @@ function show_category_meta_title() {
 	}
 }
 
-function show_category_title($cur_cat_id) {
-	if(get_option('cat_meta_key_'.$cur_cat_id)) {
-	  $cat_meta_data = get_option('cat_meta_key_'.$cur_cat_id);
-	  //ob_start('output_callback_for_title');
-	  echo $cat_meta_data['page_title'];
-	} else {
-	  echo wp_title(' ', true, 'right');
-	  echo " - ";
-	  echo bloginfo("name");
-	}
+function show_category_title() {
+	$cur_cat_id = get_cat_id( single_cat_title("",false) );
+	$cat_meta_data = get_option('cat_meta_key_'.$cur_cat_id);
+	return $cat_meta_data['page_title'];
 }
+
+function show_tag_title() {
+	$cur_tag_id = get_query_var('tag_id');
+	$tag_meta_data = get_option('tag_meta_key_'.$cur_tag_id);
+	return $tag_meta_data['page_title'];
+}
+
+
 
 function get_current_cat_meta($cur_cat_id) {
 	if(get_option('cat_meta_key_'.$cur_cat_id)) {
 	  $cat_meta_data = get_option('cat_meta_key_'.$cur_cat_id);
-	  //echo '<title>'.$cat_meta_data['page_title'].'</title>'."\r\n";
+	  add_filter('aioseop_category_title', show_category_title); 
 	  echo '<meta name="description" content="'.$cat_meta_data['description'].'" />'."\r\n";
 	  echo '<meta name="keywords" content="'.$cat_meta_data['metakey'].'" />'."\r\n";
+	}
+}
+
+function get_current_tag_meta($cur_tag_id) {
+	if(get_option('tag_meta_key_'.$cur_tag_id)) {
+	  $tag_meta_data = get_option('tag_meta_key_'.$cur_tag_id);
+	  add_filter('aioseop_tag_title', show_tag_title); 
+	  echo '<meta name="description" content="'.$tag_meta_data['description'].'" />'."\r\n";
+	  echo '<meta name="keywords" content="'.$tag_meta_data['metakey'].'" />'."\r\n";
 	}
 }
 
 function category_meta_form() {
 if(isset($_GET['action']) && $_GET['action']=="edit") {
 ?>
+<div class="icon32" id="icon-edit"><br></div>
 <h2>Category Meta Setting</h2>
 <?php $cat_meta = get_option('cat_meta_key_'.$_GET['tag_ID']); //print_r( $cat_meta); ?>
-<table width="100%" border="1" cellspacing="3" cellpadding="3">
-  <tr>
-    <td width="33%"><div align="right"><strong>Page Title:</strong></div></td>
-    <td><input name="cat_title" type="text" style="width:95%" value="<?php echo $cat_meta['page_title']; ?>" /></td>
+<table class="form-table" >
+<tbody>
+  <tr class="form-field form-required">
+    <th valign="top" scope="row"><label for="cat_title">Category Title:</label></th>
+    <td><input name="cat_title" type="text" size="40" value="<?php echo $cat_meta['page_title']; ?>" />
+    <p class="description">Enter category title tag here.</p>
+    </td>
   </tr>
-    <tr>
-    <td width="33%"><div align="right"><strong>Description:</strong></div></td>
-    <td><textarea name="cat_desc" style="width:95%" rows="4"><?php echo $cat_meta['description']; ?></textarea></td>
+  <tr class="form-field form-required">
+    <th valign="top" scope="row"><label for="cat_title">Description:</label></th>
+    <td><textarea name="cat_desc" size="40" rows="4"><?php echo $cat_meta['description']; ?></textarea>
+    <p class="description">Enter category description text here.</p>
+    </td>
   </tr>
-    <tr>
-    <td width="33%"><div align="right"><strong>Keywords:</strong></div></td>
-    <td><input name="cat_keywords" type="text" style="width:95%" value="<?php echo $cat_meta['metakey']; ?>" /></td>
+  <tr class="form-field form-required">
+    <th valign="top" scope="row"><label for="cat_title">Keywords</label></th>
+    <td><input name="cat_keywords" type="text" size="40" value="<?php echo $cat_meta['metakey']; ?>" />
+    <p class="description">Enter category keywords here.</p></td>
   </tr>
+ </tbody> 
 </table>
+<div style="margin:10px; text-align:center;">
+<a href="http://www.bala-krishna.com" target="_blank">Author Home Page</a> | <a href="http://www.bala-krishna.com/wordpress-plugins/" target="_blank">Wordpress Plugin Development</a> | <a href="http://www.bala-krishna.com/contact-bala-krishna/" target="_blank">Contact Author</a>
+</div>
 <?php
 }
 }
+
+function tag_meta_form() {
+if(isset($_GET['action']) && $_GET['action']=="edit") {
+?>
+<div class="icon32" id="icon-edit"><br></div>
+<h2>Tag Meta Setting</h2>
+<?php $cat_meta = get_option('tag_meta_key_'.$_GET['tag_ID']); //print_r( $cat_meta); ?>
+<table class="form-table" >
+<tbody>
+  <tr class="form-field form-required">
+    <th valign="top" scope="row"><label for="tag_title">Tag Title:</label></th>
+    <td><input name="tag_title" type="text" size="40" value="<?php echo $cat_meta['page_title']; ?>" />
+    <p class="description">Enter tag title tag here.</p>
+    </td>
+  </tr>
+  <tr class="form-field form-required">
+    <th valign="top" scope="row"><label for="tag_desc">Description:</label></th>
+    <td><textarea name="tag_desc" size="40" rows="4"><?php echo $cat_meta['description']; ?></textarea>
+    <p class="description">Enter tag description text here.</p>
+    </td>
+  </tr>
+  <tr class="form-field form-required">
+    <th valign="top" scope="row"><label for="tag_keywords">Keywords</label></th>
+    <td><input name="tag_keywords" type="text" size="40" value="<?php echo $cat_meta['metakey']; ?>" />
+    <p class="description">Enter tag keywords here.</p></td>
+  </tr>
+ </tbody> 
+</table>
+<div style="margin:10px; text-align:center;">
+<a href="http://www.bala-krishna.com" target="_blank">Author Home Page</a> | <a href="http://www.bala-krishna.com/wordpress-plugins/" target="_blank">Wordpress Plugin Development</a> | <a href="http://www.bala-krishna.com/contact-bala-krishna/" target="_blank">Contact Author</a>
+</div>
+
+<?php
+}
+}
+
 add_action ('edit_category_form', 'category_meta_form' );
+add_action ('edit_tag_form', 'tag_meta_form' );
 add_action ('wp_head','show_category_meta'); 
 ?>

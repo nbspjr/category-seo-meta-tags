@@ -4,13 +4,19 @@ Donate link:  I will add later
 Tags: post,google,seo,meta,meta keywords,meta description,title,posts,plugin, search engine optimization
 Requires at least: 3.0
 Tested up to: 3.0 and Above
-Stable tag: 1.1
-
+Stable tag: 2.0
 
 == Description ==
+
+Added meta tags support for tag pages. 
+
 Allow you to add custom meta tags for category pages. This plugin specially designed to work with All In One SEO plugin. If you are using other seo plugin such as HeadSpace2 or SEO Title Tags plugin then this plugin is not for you because this plugin already supporting meta tags for category pages. 
 
-Version 1.1 optimized for wordpress 3.0 and above. Do not upgrade if you are using wordpress version earlier then 3.0. Peoples are using wordpress lower then 3.0 should use 1.0 version. 
+Note before upgraded:
+Title tags implemented in a completely new way. If you are previous user and want to upgrade then you need to edit all-in-one-seo-pack again. Old editing will not work with this version. see installation tab for more details. 
+
+Version 1.1 optimized for wordpress 3.0 and above. Do not upgrade if you are using wordpress version earlier then 3.0. 
+Peoples are using wordpress lower then 3.0 should use 1.0 version. 
 
 == Upgrade Notice == 
 Version 1.1 optimized for wordpress 3.0 and above. Do not upgrade if you are using wordpress version earlier then 3.0. Peoples using wordpress lower then 3.0 should use 1.0 version. 
@@ -26,33 +32,48 @@ You can use the built in installer and upgrader, or you can install the plugin m
 
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
-3. Under Appearacne -> Theme Editor in the WordPress admin, select "Header" from the list and replace `<title><?php bloginfo('name'); wp_title(); ?></title>` (or whatever you have in your `<title>` container) with `<title><?php if (function_exists('cat_seo_title_tag')) { cat_seo_title_tag(); } else { if (is_category()) { single_cat_title(); wp_title(); } else { wp_title(); } } ?></title>`
+3. Compulary change in All In One SEO Pack (Required for category meta tag support)
 
-4. (Only required if you want to use this plugin with All In One SEO Pack and Title Rewrite Option is on)
-   Download and open aioseop.class.php file and find following line "if ($aioseop_options['aiosp_rewrite_titles']) {". It is around line number 105. Replace entire line with "if ($aioseop_options['aiosp_rewrite_titles'] && !is_category()) {". Below are the changed before and after change.
-   
-   Before the change:
-   
-	if ($aioseop_options['aiosp_rewrite_titles']) {
-			ob_start(array($this, 'output_callback_for_title'));
-	}
-	}
-	function aioseop_mrt_exclude_this_page(){
+   Download and open aioseop.class.php file and go to line number 711. Add below line after line number 711.
+
+	$title = apply_filters('aioseop_category_title',$title);
+
+	Before:
 	
-	After the change:
+	$title = $this->paged_title($title);
+	$header = $this->replace_title($header, $title);
+
+	After: 
+
+	$title = $this->paged_title($title);
+	$title = apply_filters('aioseop_category_title',$title);
+	$header = $this->replace_title($header, $title);
 	
-	if ($aioseop_options['aiosp_rewrite_titles'] && !is_category()) {
-			ob_start(array($this, 'output_callback_for_title'));
-	}
-	}
-	function aioseop_mrt_exclude_this_page(){
+4. Compulary change in All In One SEO Pack(Required for tag pages meta support)
 
-	Want to do these change manually? Download patched all in one seo pack zip package. Extract and upload all files in `/wp-content/plugins/all-in-one-seo-pack/` folder. 
+   Download and open aioseop.class.php file and go to line number 761 and 773. Add below line after line number 761 and 773.
 
+	$title = apply_filters('aioseop_tag_title',$title);
 
-3. Visit your Category List page and then edit desired category. You will notice new meta title, description, keywords fields on each category page. Update meta-tags and click on save button to save options.
+	Before:
+	
+	$title = $this->paged_title($title);
+	$header = $this->replace_title($header, $title);
 
-4. That's it!
+	After: 
+
+	$title = $this->paged_title($title);
+	$title = apply_filters('aioseop_tag_title',$title);
+	$header = $this->replace_title($header, $title);
+	
+5. Trouble implementing above change? feel free to download already patch version from here: 
+	http://bala-krishna.com/dl/all-in-one-seo-pack.zip	
+
+5. Visit your Category List page and then edit desired category. You will notice new meta title, description, keywords fields on each category page. Update meta-tags and click on save button to save options.
+
+6. Same will apply to tag pages. Go to tag pages and edit tag to enter meta tags.
+
+7. That's it!
 
 == Frequently Asked Questions == 
 
@@ -60,7 +81,20 @@ Please read these **[FAQs](http://www.bala-krishna.com/wordpress-plugins/categor
 
 == Changelog == 
 
-Please read these **[Changelog](http://www.bala-krishna.com/wordpress-plugins/category-seo-meta-tags/)** here.
+2.0 
+---
+Added tag page meta support
+Filter implementaion for less editing of all in one seo pack 
+
+1.1 
+---
+Added support for wordpress 3.0 and above
+
+1.0
+---
+Startup version
+
+
 
 == Screenshots ==
 
