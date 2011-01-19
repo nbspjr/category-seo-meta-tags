@@ -111,4 +111,4 @@ Startup version
 2. Category Meta Entry screenshot.
 3. Tag Meta Entry form screenshot.
 
-For more details **[visit plugin page.](http://www.bala-krishna.com/wordpress-plugins/category-seo-meta-tags/)** 
+For more details **[visit plugin page.](http://www.bala-krishna.com/wordpress-plugins/category-seo-meta-tags/)**  
