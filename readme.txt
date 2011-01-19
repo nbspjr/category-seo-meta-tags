@@ -12,7 +12,7 @@ Added meta tags support for tag pages.
 
 Allow you to add custom meta tags for category and tag pages. This plugin specially designed to work with All In One SEO plugin. If you are using other seo plugin such as HeadSpace2 or SEO Title Tags plugin then this plugin is not for you because this plugin already supporting meta tags for category pages. 
 
-Note before upgraded:
+Note before upgraded: 
 Title tags implemented in a completely new way. If you are previous user and want to upgrade then you need to edit all-in-one-seo-pack again. Old editing will not work with this version. see installation tab for more details. 
 
 Version 1.1 optimized for wordpress 3.0 and above. Do not upgrade if you are using wordpress version earlier then 3.0. 
