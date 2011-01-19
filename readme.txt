@@ -1,10 +1,10 @@
 === Category SEO Meta Tags ===
 Contributors: Bala Krishna
-Donate link:  I will add later
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=krishna711%40gmail%2ecom&item_name=WP Plugin Support Donation&item_number=Support%20Forum&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
 Tags: post,google,seo,meta,meta keywords,meta description,title,posts,plugin, search engine optimization
 Requires at least: 3.0
 Tested up to: 3.0 and Above
-Stable tag: 2.0
+Stable tag: 2.1
 
 == Description ==
 
@@ -66,20 +66,30 @@ You can use the built in installer and upgrader, or you can install the plugin m
 	$title = apply_filters('aioseop_tag_title',$title);
 	$header = $this->replace_title($header, $title);
 	
-5. Trouble implementing above change? feel free to download already patch version from here: 
-	http://bala-krishna.com/dl/all-in-one-seo-pack.zip	
+5. Trouble implementing above change? feel free to download already patch version from here: Always download latest patched version from here.
+	http://bala-krishna.com/dl/all-in-one-seo-pack.zip	[1.6.13.1]
 
 5. Visit your Category List page and then edit desired category. You will notice new meta title, description, keywords fields on each category page. Update meta-tags and click on save button to save options.
 
 6. Same will apply to tag pages. Go to tag pages and edit tag to enter meta tags.
 
-7. That's it!
+7. Go to Setting -> Categor SEO Meta Tags to enable/disable plugin and other option.
+
+8. That's it!
 
 == Frequently Asked Questions == 
 
 Please read these **[FAQs](http://www.bala-krishna.com/wordpress-plugins/category-seo-meta-tags/)** here.
 
 == Changelog == 
+
+
+2.1 
+---
+Added setting page to enable/disable plugin without unstalling.
+Title format setting added to category and tag pages.
+Now you can add prefix and suffix in title. 
+
 
 2.0 
 ---
@@ -95,8 +105,10 @@ Added support for wordpress 3.0 and above
 ---
 Startup version
 
-
-
 == Screenshots ==
 
-Please read these **[Screenshots](http://www.bala-krishna.com/wordpress-plugins/category-seo-meta-tags/)** here.
+1. Category SEO Meta Tags option page.
+2. Category Meta Entry screenshot.
+3. Tag Meta Entry form screenshot.
+
+For more details **[visit plugin page.](http://www.bala-krishna.com/wordpress-plugins/category-seo-meta-tags/)** 
