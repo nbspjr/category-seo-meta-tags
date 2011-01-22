@@ -8,7 +8,7 @@ Stable tag: 2.2
 
 == Description ==
 
-Fixed meta title bug in 2.1
+Fixed meta title bug in 2.1. Thanks to phil who reported this bug.
 Added meta tags support for tag pages. 
 
 Allow you to add custom meta tags for category and tag pages. This plugin specially designed to work with All In One SEO plugin. If you are using other seo plugin such as HeadSpace2 or SEO Title Tags plugin then this plugin is not for you because this plugin already supporting meta tags for category pages. 
@@ -86,7 +86,7 @@ Please read these **[FAQs](http://www.bala-krishna.com/wordpress-plugins/categor
 
 2.2 
 ---
-Fixed meta title bug.
+Fixed meta title bug. (Reported by Phil)
 
 2.1 
 ---
