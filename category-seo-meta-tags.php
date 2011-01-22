@@ -2,7 +2,7 @@
 /**
  * @package Category SEO Meta Tags
  * @author Bala Krishna
- * @version 2.1
+ * @version 2.2
  */
 
 /*
@@ -11,7 +11,7 @@ Plugin Name: Category SEO Meta Tags
 Plugin URI: http://www.bala-krishna.com/wordpress-plugins/category-seo-meta-tags/
 Description: Add ability to add meta tags for category and tag pages. This plugin specially designed to work with All In One SEO plugin. <br /><a href="options-general.php?page=csmt">Settings</a> | <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=krishna711%40gmail%2ecom&item_name=WP Plugin Support Donation&item_number=Support%20Forum&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8">Donate</a> | <a href="http://www.bala-krishna.com/forum/" >Support Forum</a> 
 Author: Bala Krishna
-Version: 2.1
+Version: 2.2
 Author URI: http://www.bala-krishna.com
 */
 
@@ -99,48 +99,70 @@ function show_category_meta_title() {
 
 function show_category_title() {
 	$cur_cat_id = get_cat_id( single_cat_title("",false) );
-	$cat_meta_data = get_option('cat_meta_key_'.$cur_cat_id);
-	$title = "";
-	$title2 = "";
 	$csmt_options = get_option('csmt_options');
-	$title = str_replace('%category_title%', $cat_meta_data['page_title'], $csmt_options['csmt_cat_title_format']);
-	$title = str_replace('%blog_title%', get_bloginfo('name'), $title);
-	if(is_paged())
-	{
-		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-		$title2 = str_replace('%page_num%', $paged, $csmt_options['csmt_cat_paged_format']);
+	if(get_option('cat_meta_key_'.$cur_cat_id) && $csmt_options['csmt_enabled']) {
+		$cat_meta_data = get_option('cat_meta_key_'.$cur_cat_id);
+		$title = "";
+		$title2 = "";
+		$csmt_options = get_option('csmt_options');
+		$title = str_replace('%category_title%', $cat_meta_data['page_title'], $csmt_options['csmt_cat_title_format']);
+		$title = str_replace('%blog_title%', get_bloginfo('name'), $title);
+		if(is_paged())
+		{
+			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+			$title2 = str_replace('%page_num%', $paged, $csmt_options['csmt_cat_paged_format']);
+		}
+		$title = $title.$title2;
+	} else {
+		$title = str_replace('%category_title%', single_cat_title("",false), $csmt_options['csmt_cat_title_format']);
+		$title = str_replace('%blog_title%', get_bloginfo('name'), $title);
+		if(is_paged())
+		{
+			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+			$title2 = str_replace('%page_num%', $paged, $csmt_options['csmt_cat_paged_format']);
+		}
+		$title = $title.$title2;
 	}
-	$title = $title.$title2;
 	return $title;
 }
 
 function show_tag_title() {
 	$cur_tag_id = get_query_var('tag_id');
 	$tag_meta_data = get_option('tag_meta_key_'.$cur_tag_id);
-
-	$title = "";
-	$title2 = "";
 	$csmt_options = get_option('csmt_options');
-	$title = str_replace('%tag_title%', $tag_meta_data['page_title'], $csmt_options['csmt_tag_title_format']);
-	$title = str_replace('%blog_title%', get_bloginfo('name'), $title);
-	if(is_paged())
-	{
-		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-		$title2 = str_replace('%page_num%', $paged, $csmt_options['csmt_tag_paged_format']);
+	if(get_option('tag_meta_key_'.$cur_tag_id) && $csmt_options['csmt_enabled']) {
+		$title = "";
+		$title2 = "";
+		$title = str_replace('%tag_title%', $tag_meta_data['page_title'], $csmt_options['csmt_tag_title_format']);
+		$title = str_replace('%blog_title%', get_bloginfo('name'), $title);
+		if(is_paged())
+		{
+			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+			$title2 = str_replace('%page_num%', $paged, $csmt_options['csmt_tag_paged_format']);
+		}
+		$title = $title.$title2;
+	} else {
+		$title = str_replace('%tag_title%', ucwords(single_tag_title("", false)), $csmt_options['csmt_tag_title_format']);
+		$title = str_replace('%blog_title%', get_bloginfo('name'), $title);
+		if(is_paged())
+		{
+			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+			$title2 = str_replace('%page_num%', $paged, $csmt_options['csmt_tag_paged_format']);
+		}
+		$title = $title.$title2;
 	}
-	$title = $title.$title2;
 	return $title;
 }
+
 
 function get_current_cat_meta($cur_cat_id) {
 	$csmt_options = get_option('csmt_options');
 	if(get_option('cat_meta_key_'.$cur_cat_id) && $csmt_options['csmt_enabled']) {
 	  $cat_meta_data = get_option('cat_meta_key_'.$cur_cat_id);
-	  add_filter('aioseop_category_title', show_category_title); 
-	  echo '<!-- Category SEO Meta Tags 2.0 by Bala Krishna (http://www.bala-krishna.com) -->'."\r\n";
+	  echo '<!-- Category SEO Meta Tags 2.2 by Bala Krishna (http://www.bala-krishna.com) -->'."\r\n";
 	  echo '<meta name="description" content="'.$cat_meta_data['description'].'" />'."\r\n";
 	  echo '<meta name="keywords" content="'.$cat_meta_data['metakey'].'" />'."\r\n";
-	  echo '<!-- /Category SEO Meta Tags 2.0 -->'."\r\n";
+	  echo '<!-- /Category SEO Meta Tags 2.2 -->'."\r\n";
 	}
 }
 
@@ -148,11 +170,10 @@ function get_current_tag_meta($cur_tag_id) {
 	$csmt_options = get_option('csmt_options');
 	if(get_option('tag_meta_key_'.$cur_tag_id) && $csmt_options['csmt_enabled']) {
 	  $tag_meta_data = get_option('tag_meta_key_'.$cur_tag_id);
-	  add_filter('aioseop_tag_title', show_tag_title); 
-	  echo '<!-- Category SEO Meta Tags 2.0 by Bala Krishna (http://www.bala-krishna.com) -->'."\r\n";
+	  echo '<!-- Category SEO Meta Tags 2.2 by Bala Krishna (http://www.bala-krishna.com) -->'."\r\n";
 	  echo '<meta name="description" content="'.$tag_meta_data['description'].'" />'."\r\n";
 	  echo '<meta name="keywords" content="'.$tag_meta_data['metakey'].'" />'."\r\n";
-	  echo '<!-- /Category SEO Meta Tags 2.0 -->'."\r\n";
+	  echo '<!-- /Category SEO Meta Tags 2.2 -->'."\r\n";
 	}
 }
 
@@ -340,6 +361,8 @@ if(isset($_GET['action']) && $_GET['action']=="edit") {
 }
 }
 
+add_filter('aioseop_category_title',show_category_title);
+add_filter('aioseop_tag_title',show_tag_title);
 add_action ('edit_category_form', 'category_meta_form' );
 add_action ('edit_tag_form', 'tag_meta_form' );
 add_action ('wp_head','show_category_meta'); 
