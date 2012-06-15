@@ -1,12 +1,14 @@
 === Category SEO Meta Tags ===
-Contributors: Bala Krishna
+Contributors: Bala Krishna, Sergey Yakovlev
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=krishna711%40gmail%2ecom&item_name=WP Plugin Support Donation&item_number=Support%20Forum&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
 Tags: post,google,seo,meta,meta keywords,meta description,title,posts,plugin, search engine optimization
 Requires at least: 3.0
 Tested up to: 3.0 and Above
-Stable tag: 2.2
+Stable tag: 2.3
 
 == Description ==
+
+Localization support added.
 
 Fixed meta title bug in 2.1. Thanks to phil who reported this bug.
 Added meta tags support for tag pages. 
@@ -18,6 +20,11 @@ Title tags implemented in a completely new way. If you are previous user and wan
 
 Version 1.1 optimized for wordpress 3.0 and above. Do not upgrade if you are using wordpress version earlier then 3.0. 
 Peoples are using wordpress lower then 3.0 should use 1.0 version. 
+
+<h4>Translators</h4>
+<ul>
+<li>Russian (ru_RU) - Sergey Yakovlev</li>
+</ul>
 
 == Upgrade Notice == 
 Version 1.1 optimized for wordpress 3.0 and above. Do not upgrade if you are using wordpress version earlier then 3.0. Peoples using wordpress lower then 3.0 should use 1.0 version. 
@@ -84,9 +91,13 @@ Please read these **[FAQs](http://www.bala-krishna.com/wordpress-plugins/categor
 
 == Changelog == 
 
+2.3 
+---
+Localization support added. Support russian language. Translated by Sadhooklay (sadhooklay@gmail.com)
+
 2.2 
 ---
-Fixed meta title bug. (Reported by Phil)
+Fixed meta title bug. Reported by Phil
 
 2.1 
 ---

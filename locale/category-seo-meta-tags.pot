@@ -1,0 +1,206 @@
+# Copyright (C) 2012 Category SEO Meta Tags
+# This file is distributed under the same license as the Category SEO Meta Tags package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Category SEO Meta Tags 2.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/category-seo-meta-tags\n"
+"POT-Creation-Date: 2012-06-03 10:05:41+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2012-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: category-seo-meta-tags.php:198
+msgid "CSMT Settings"
+msgstr ""
+
+#: category-seo-meta-tags.php:205
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: category-seo-meta-tags.php:209
+msgid "Category SEO Meta Tags Settings"
+msgstr ""
+
+#: category-seo-meta-tags.php:212
+msgid "Category SEO Meta Tags Settings Updated"
+msgstr ""
+
+#: category-seo-meta-tags.php:227
+msgid "Enable CSMT"
+msgstr ""
+
+#: category-seo-meta-tags.php:230
+msgid "Category Title Format"
+msgstr ""
+
+#: category-seo-meta-tags.php:231
+msgid "enter title tag format for category pages here"
+msgstr ""
+
+#: category-seo-meta-tags.php:233
+msgid "Category Paged Format"
+msgstr ""
+
+#: category-seo-meta-tags.php:234 category-seo-meta-tags.php:240
+msgid ""
+"enter format for paged pages. it will be appended in above format on paged "
+"pages."
+msgstr ""
+
+#: category-seo-meta-tags.php:236
+msgid "Tag Title Format"
+msgstr ""
+
+#: category-seo-meta-tags.php:237
+msgid "enter title tag format for tag pages here"
+msgstr ""
+
+#: category-seo-meta-tags.php:239
+msgid "Tag Paged Format"
+msgstr ""
+
+#: category-seo-meta-tags.php:250
+msgid ""
+"Join our mailing list for web development tips, tricks, and tech updates. "
+"Sign up today."
+msgstr ""
+
+#: category-seo-meta-tags.php:272
+msgid "* indicates required"
+msgstr ""
+
+#: category-seo-meta-tags.php:274
+msgid "Name "
+msgstr ""
+
+#: category-seo-meta-tags.php:278
+msgid "Email Address "
+msgstr ""
+
+#: category-seo-meta-tags.php:289
+msgid "Close"
+msgstr ""
+
+#: category-seo-meta-tags.php:293
+msgid ""
+"If you like this plugin and find it useful, help keep this plugin free and "
+"actively developed by clicking the donate button."
+msgstr ""
+
+#: category-seo-meta-tags.php:294 category-seo-meta-tags.php:337
+#: category-seo-meta-tags.php:371
+msgid "Author Home Page"
+msgstr ""
+
+#: category-seo-meta-tags.php:294
+msgid "Donate"
+msgstr ""
+
+#: category-seo-meta-tags.php:294 category-seo-meta-tags.php:337
+#: category-seo-meta-tags.php:371
+msgid "Contact Author"
+msgstr ""
+
+#: category-seo-meta-tags.php:294
+msgid "Follow me on Twitter"
+msgstr ""
+
+#: category-seo-meta-tags.php:294
+msgid "Other Wordpress Plugins by author"
+msgstr ""
+
+#: category-seo-meta-tags.php:312
+msgid "Category Meta Setting"
+msgstr ""
+
+#: category-seo-meta-tags.php:317
+msgid "Category Title"
+msgstr ""
+
+#: category-seo-meta-tags.php:319
+msgid "Enter category title tag here."
+msgstr ""
+
+#: category-seo-meta-tags.php:319 category-seo-meta-tags.php:354
+msgid " (*required)"
+msgstr ""
+
+#: category-seo-meta-tags.php:324
+msgid "Description"
+msgstr ""
+
+#: category-seo-meta-tags.php:326
+msgid "Enter category description text here."
+msgstr ""
+
+#: category-seo-meta-tags.php:326 category-seo-meta-tags.php:332
+#: category-seo-meta-tags.php:360 category-seo-meta-tags.php:366
+msgid " (can be left blank)"
+msgstr ""
+
+#: category-seo-meta-tags.php:330 category-seo-meta-tags.php:364
+msgid "Keywords"
+msgstr ""
+
+#: category-seo-meta-tags.php:332
+msgid "Enter category keywords here."
+msgstr ""
+
+#: category-seo-meta-tags.php:337 category-seo-meta-tags.php:371
+msgid "Wordpress Plugin Development"
+msgstr ""
+
+#: category-seo-meta-tags.php:347
+msgid "Tag Meta Setting"
+msgstr ""
+
+#: category-seo-meta-tags.php:352
+msgid "Tag Title:"
+msgstr ""
+
+#: category-seo-meta-tags.php:354
+msgid "Enter tag title tag here."
+msgstr ""
+
+#: category-seo-meta-tags.php:358
+msgid "Description:"
+msgstr ""
+
+#: category-seo-meta-tags.php:360
+msgid "Enter tag description text here."
+msgstr ""
+
+#: category-seo-meta-tags.php:366
+msgid "Enter tag keywords here."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Category SEO Meta Tags"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.bala-krishna.com/wordpress-plugins/category-seo-meta-tags/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Add ability to add meta tags for category and tag pages. This plugin "
+"specially designed to work with All In One SEO plugin. <br /><a href="
+"\"options-general.php?page=csmt\">Settings</a> | <a href=\"https://www."
+"paypal.com/cgi-bin/webscr?cmd=_donations&business=krishna711%40gmail"
+"%2ecom&item_name=WP Plugin Support Donation&item_number=Support"
+"%20Forum&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP"
+"%2dDonationsBF&charset=UTF%2d8\">Donate</a> | <a href=\"http://www.bala-"
+"krishna.com/forum/\" >Support Forum</a>"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Bala Krishna"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.bala-krishna.com"
+msgstr ""
