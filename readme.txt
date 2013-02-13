@@ -4,9 +4,11 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=krish
 Tags: post,google,seo,meta,meta keywords,meta description,title,posts,plugin, search engine optimization
 Requires at least: 3.0
 Tested up to: 3.0 and Above
-Stable tag: 2.3
+Stable tag: 2.5
 
 == Description ==
+
+Plugin now support custom taxonomy. Tested with Woocommerce, FoxyShop and WP-ECommerce
 
 Localization support added.
 
@@ -42,7 +44,7 @@ You can use the built in installer and upgrader, or you can install the plugin m
 
 3. Compulary change in All In One SEO Pack (Required for category meta tag support)
 
-   Download and open aioseop.class.php file and go to line number 711. Add below line after line number 711.
+   Download and open aioseop.class.php file and go to line number 790. Add below line after line number 790.
 
 	$title = apply_filters('aioseop_category_title',$title);
 
@@ -59,7 +61,7 @@ You can use the built in installer and upgrader, or you can install the plugin m
 	
 4. Compulary change in All In One SEO Pack(Required for tag pages meta support)
 
-   Download and open aioseop.class.php file and go to line number 761 and 773. Add below line after line number 761 and 773.
+   Download and open aioseop.class.php file and go to line number 839 and 851. Add below line after line number 839 and 851.
 
 	$title = apply_filters('aioseop_tag_title',$title);
 
@@ -74,8 +76,25 @@ You can use the built in installer and upgrader, or you can install the plugin m
 	$title = apply_filters('aioseop_tag_title',$title);
 	$header = $this->replace_title($header, $title);
 	
+5. Compulary change in All In One SEO Pack(Required for custom taxonomy meta support)
+
+   Download and open aioseop.class.php file and go to line number 862. Add below line after line number 862.
+
+	$title = apply_filters('aioseop_tag_title',$title);
+
+	Before:
+	
+	$title = $this->paged_title($title);
+	$header = $this->replace_title($header, $title);
+
+	After: 
+
+	$title = $this->paged_title($title);
+	$title = apply_filters('aioseop_tag_title',$title);
+	$header = $this->replace_title($header, $title);	
+	
 5. Trouble implementing above change? feel free to download already patch version from here: Always download latest patched version from here.
-	http://bala-krishna.com/dl/all-in-one-seo-pack.zip	[1.6.13.1]
+	http://bala-krishna.com/dl/all-in-one-seo-pack-1.6.15.3.zip	[1.6.15.3]
 
 5. Visit your Category List page and then edit desired category. You will notice new meta title, description, keywords fields on each category page. Update meta-tags and click on save button to save options.
 
@@ -90,6 +109,10 @@ You can use the built in installer and upgrader, or you can install the plugin m
 Please read these **[FAQs](http://www.bala-krishna.com/wordpress-plugins/category-seo-meta-tags/)** here.
 
 == Changelog == 
+
+2.5
+---
+Custom taxonomy support added. Tested with Woocommerce, FoxyShop and WP-ECommerce.
 
 2.3 
 ---
