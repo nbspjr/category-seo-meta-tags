@@ -89,7 +89,7 @@ if(isset($_POST['action']) && $_POST['action']=="editedtag" && $_POST['taxonomy'
 	}	 
 }
 $csmt_options = get_option('csmt_options');
-$taxonomies = $csmt_options['csmt_taxonomies'];
+$taxonomies = !empty($csmt_options['csmt_taxonomies']) ? $csmt_options['csmt_taxonomies'] : false;
 if(is_array($taxonomies)) {
 foreach ($taxonomies as $taxonomy ) {
 	if(isset($_POST['action']) && $_POST['action']=="editedtag" && $_POST['taxonomy']==$taxonomy) {
@@ -507,8 +507,8 @@ if(isset($_GET['taxonomy']) && ($_GET['taxonomy']!='post_tag') ) {
 }
 
 
-add_filter('aioseop_category_title',show_category_title);
-add_filter('aioseop_tag_title',show_tag_title);
+add_filter('aioseop_category_title', 'show_category_title');
+add_filter('aioseop_tag_title', 'show_tag_title');
 add_action ('edit_category_form', 'category_meta_form' );
 add_action ('edit_tag_form', 'tag_meta_form' );
 add_action ('wp_head','show_category_meta'); 
